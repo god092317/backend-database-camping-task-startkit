@@ -64,22 +64,19 @@ VALUES
     -- 2. `王小明` 購買 `21 堂組合包方案`
     -- 3. `好野人` 購買 `14 堂組合包方案`
 INSERT INTO "CREDIT_PURCHASE" 
-(user_id, credit_package_id, purchased_credits, price_paid)
- VALUES
- ((SELECT id FROM "USER" WHERE name = '王小明'),
-  (SELECT id FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'),
-  (SELECT credit_amount FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'),
-  (SELECT price FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案')),
-  
- ((SELECT id FROM "USER" WHERE name = '王小明'),
-  (SELECT id FROM "CREDIT_PACKAGE" WHERE name = '21 堂組合包方案'),
-  (SELECT credit_amount FROM "CREDIT_PACKAGE" WHERE name = '21 堂組合包方案'),
-  (SELECT price FROM "CREDIT_PACKAGE" WHERE name = '21 堂組合包方案')),
-  
- ((SELECT id FROM "USER" WHERE name = '好野人'),
-  (SELECT id FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'),
-  (SELECT credit_amount FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'),
-  (SELECT price FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'));
+(user_id, credit_package_id, purchased_credits, price_paid) VALUES
+((SELECT id FROM "USER" WHERE email = 'wXlTq@hexschooltest.io'),
+ (SELECT id FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'),
+ (SELECT credit_amount FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'),
+ (SELECT price FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案')),
+((SELECT id FROM "USER" WHERE email = 'wXlTq@hexschooltest.io'),
+ (SELECT id FROM "CREDIT_PACKAGE" WHERE name = '21 堂組合包方案'),
+ (SELECT credit_amount FROM "CREDIT_PACKAGE" WHERE name = '21 堂組合包方案'),
+ (SELECT price FROM "CREDIT_PACKAGE" WHERE name = '21 堂組合包方案')),
+((SELECT id FROM "USER" WHERE email = 'richman@hexschooltest.io'),
+ (SELECT id FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'),
+ (SELECT credit_amount FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'),
+ (SELECT price FROM "CREDIT_PACKAGE" WHERE name = '14 堂組合包方案'));
 
 -- ████████  █████   █    ████   
 --   █ █   ██    █  █         ██ 
@@ -107,19 +104,14 @@ INSERT INTO "COACH_LINK_SKILL"(coach_id, skill_id)
 VALUES
 ((SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'lee2000@hexschooltest.io')),
  (SELECT id FROM "SKILL" WHERE name = '重訓')),
-  
 ((SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'muscle@hexschooltest.io')),
  (SELECT id FROM "SKILL" WHERE name = '重訓')),
-  
 ((SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'starplatinum@hexschooltest.io')),
  (SELECT id FROM "SKILL" WHERE name = '重訓')),
- 
 ((SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'muscle@hexschooltest.io')),
  (SELECT id FROM "SKILL" WHERE name = '瑜伽')),
-
 ((SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'starplatinum@hexschooltest.io')),
  (SELECT id FROM "SKILL" WHERE name = '有氧運動')),
-
 ((SELECT id FROM "COACH" WHERE user_id = (SELECT id FROM "USER" WHERE email = 'starplatinum@hexschooltest.io')),
  (SELECT id FROM "SKILL" WHERE name = '復健訓練'));
 
@@ -162,7 +154,7 @@ INSERT INTO "COURSE"(user_id, skill_id, name, start_at, end_at, max_participants
 VALUES(
  (SELECT id FROM "USER" WHERE email = 'lee2000@hexschooltest.io'),
  (SELECT id FROM "SKILL" WHERE name = '重訓'),
- '重訓基礎課', 2024-11-25 14:00:00, 2024-11-25 16:00:00, 10, 'https://test-meeting.test.io'
+ '重訓基礎課', '2024-11-25 14:00:00', '2024-11-25 16:00:00', 10, 'https://test-meeting.test.io'
 );
 
 
