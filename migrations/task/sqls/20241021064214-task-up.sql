@@ -296,3 +296,4 @@ FROM "COURSE_BOOKING"
 WHERE created_at >= '2024-12-01 00:00:00'
 AND	created_at <= '2024-12-31 23:59:59'
 AND status <> '課程已取消';
+
